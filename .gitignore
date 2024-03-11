@@ -1,0 +1,6 @@
+**/.DS_Store
+*.o
+*.exe
+**/tags
+**/shell
+**/.vscode
