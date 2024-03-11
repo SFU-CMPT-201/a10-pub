@@ -245,7 +245,7 @@ There are several requirements for this assignment.
       should be the size of `(all key-value pairs) / (number of threads)`, except for the last
       chunk, which should contain the remaining key-value pairs if there's any. For example, if we
       have 7 key-value pairs and 3 threads, the first two chunks should contain 3 key-value pairs
-      each, and the last chunk should contain 1 key-value pairs. If we have 6 key-value pairs
+      each, and the last chunk should contain 1 key-value pair. If we have 6 key-value pairs
       instead, each chunk should contain 2 key-value pairs.
 * You need to use `pthread` to create threads. You should also use appropriate synchronization
   primitives to ensure that the threads work correctly.
