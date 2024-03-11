@@ -3,14 +3,17 @@
 In this assignment, you will implement a simple version of
 [MapReduce](https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/).
 MapReduce is a programming framework for processing large data sets with a parallel, distributed
-algorithm on a cluster. It was inspired by the map and reduce functions commonly used in functional
-programming. The key components of the framework are two functions: `map` and `reduce`. The `map`
-function processes a key-value pair to generate a set of intermediate key-value pairs. The `reduce`
-function processes the intermediate key-value pairs to generate the final output. The framework is
-widely used in distributed computing, and it is the foundation of many big data processing systems,
-such as [Hadoop](https://hadoop.apache.org/) and [Spark](https://spark.apache.org/). It is used in
-many courses as assignments due to its elegance and popularity. In this assignment, you will
-implement a simple version of the MapReduce framework using threads and synchronization primitives.
+algorithm on a cluster. It was inspired by the
+[map](https://en.wikipedia.org/wiki/Map_(higher-order_function)) and
+[reduce](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) functions commonly used in
+functional programming. The key components of the framework are those two functions: `map` and
+`reduce`. The `map` function processes a key-value pair to generate a set of intermediate key-value
+pairs. The `reduce` function processes the intermediate key-value pairs to generate the final
+output. The framework is widely used in distributed computing, and it is the foundation of many big
+data processing systems, such as [Hadoop](https://hadoop.apache.org/) and
+[Spark](https://spark.apache.org/). It is used in many courses as assignments due to its elegance
+and popularity. In this assignment, you will implement a simple version of the MapReduce framework
+using threads and synchronization primitives.
 
 We note that the description here largely comes from [the original MapReduce
 paper](https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/).
@@ -238,11 +241,12 @@ There are several requirements for this assignment.
       key-value pairs: `("brown", "2")`, `("fox", "2")`, and `("dog", "2")`, the framework should
       store the final output in the following order: `("brown", "2")`, `("dog", "2")`, and `("fox",
       "2")`.
-    * When partitioning input or intermediate key-value pairs into chunks, all chunks should contain
-      the size of `(all key-value pairs) / (number of threads)`, except for the last chunk, which
-      may contain the remaining key-value pairs. For example, if we have 10 key-value pairs and 3
-      threads, the first two chunks should contain 3 key-value pairs each, and the last chunk should
-      contain 1 key-value pairs.
+    * When partitioning input or intermediate key-value pairs into chunks, the size of each chunk
+      should be the size of `(all key-value pairs) / (number of threads)`, except for the last
+      chunk, which should contain the remaining key-value pairs if there's any. For example, if we
+      have 7 key-value pairs and 3 threads, the first two chunks should contain 3 key-value pairs
+      each, and the last chunk should contain 1 key-value pairs. If we have 6 key-value pairs
+      instead, each chunk should contain 2 key-value pairs.
 * You need to use `pthread` to create threads. You should also use appropriate synchronization
   primitives to ensure that the threads work correctly.
 * You need to write `CMakeLists.txt` that produces a single executable named `mapreduce` that runs
