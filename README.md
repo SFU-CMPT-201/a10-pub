@@ -16,7 +16,7 @@ and popularity. In this assignment, you will implement a simple version of the M
 using threads and synchronization primitives.
 
 We note that the description here largely comes from [the original MapReduce
-paper](https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/).
+paper](https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/16cb30b4b92fd4989b8619a61752a2387c6dd474.pdf).
 
 ## Understanding the Basics of MapReduce
 
