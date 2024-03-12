@@ -14,6 +14,8 @@ void free_output(struct mr_output *output) {
   for (size_t i = 0; i < output->count; i++) {
     if (output->kv_lst[i].value != NULL)
       free(output->kv_lst[i].value);
+    output->kv_lst[i].value = NULL;
   }
   free(output->kv_lst);
+  output->kv_lst = NULL;
 }
