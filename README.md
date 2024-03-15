@@ -280,6 +280,8 @@ There are several requirements for this assignment.
 * A deadlock or a livelock should not occur. If a deadlock or a livelock occurs at any point, the
   grader will stop grading the code and you will get whatever points you have at that time.
 * You should not have any memory issues. We will test this with Clang's address sanitizer. If a
-  memory issue is found, there will be a penalty of -10 pts.
+  memory issue is found, there will be a penalty of -10 pts. For your testing, make sure you also
+  use the debug option enabled in `CMakeLists.txt` to compile your code with debug information. You
+  should remove the debug option when you submit your code.
 * You need to use the same code structure as A8. A wrong code directory structure has a penalty of
   -10 pts.
