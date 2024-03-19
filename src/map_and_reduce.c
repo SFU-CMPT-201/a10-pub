@@ -339,7 +339,7 @@ bool full_map_reduce() {
             amr_output.count == 57 && amr_cmp(&amr_output) == 0;
       free_output(&amr_output);
     }
-    TEST(res, 3);
+    TEST(res, 4);
   }
 
   return res;

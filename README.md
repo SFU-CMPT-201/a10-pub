@@ -199,9 +199,11 @@ The concurrent execution of `map` and `reduce` works as follows.
 There are several requirements for this assignment.
 * Your MapReduce framework is a library that implements necessary functions that a developer uses
   to process their data.
+* You should not change the provided code as we will replace those for our grading. You can add your
+  own code/files as needed.
 * [interface.h](./include/interface.h) defines the functions that you need to implement.
-    * `mr_exec()` executes the MapReduce framework. A developer calls this function to run
-      `map()` and `reduce()`, and get the final output. You need to write this function to run the
+    * `mr_exec()` executes the MapReduce framework. A developer calls this function to run `map()`
+      and `reduce()`, and get the final output. You need to write this function to run the
       framework. A developer can call this function as many times as they want to process different
       input key-value pairs. The function takes the following arguments.
         * The input key-value pairs.
@@ -271,10 +273,10 @@ There are several requirements for this assignment.
       chunk to a `map` thread.
     * [15 pts] Correctly partition the intermediate key-value pairs into multiple chunks and assign
       each chunk to a `reduce` thread.
-    * [15 pts] Correctly generate final output.
+    * [20 pts] Correctly generate final output.
 * [5 pts] Pass all the above test cases.
-* [5 pts] `CMake` builds correctly.
-* Code that does not compile gets a 0.
+* Code that does not compile with `CMake` gets a 0.
+* Code that does not generate all the required executables gets a 0.
 * You should not have any data races. We will test this with Clang's thread sanitizer. If a data
   race is found, there will be a penalty of -10 pts.
 * A deadlock or a livelock should not occur. If a deadlock or a livelock occurs at any point, the
