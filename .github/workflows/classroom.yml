@@ -1,0 +1,9 @@
+name: CI Runner
+on:
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: '0 8 11 9 *' # 8AM 9/11 UTC, 1AM 9/11 PT
+jobs:
+  run:
+    uses: SFU-CMPT-201/graders/.github/workflows/a10.yml@main
