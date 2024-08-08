@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Grader
         id: grader
-        uses: SFU-CMPT-201/graders/.github/actions/a0@main
+        uses: SFU-CMPT-201/graders/.github/actions/a10@main
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
