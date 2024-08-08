@@ -1,9 +1,26 @@
 name: CI Runner
+permissions:
+  checks: write
+  actions: read
+  contents: read
 on:
   workflow_dispatch:
   repository_dispatch:
   schedule:
     - cron: '0 8 11 9 *' # 8AM 9/11 UTC, 1AM 9/11 PT
 jobs:
-  run:
-    uses: SFU-CMPT-201/graders/.github/workflows/a10.yml@main
+  run-autograding-tests:
+    runs-on: self-hosted
+    container: ghcr.io/sfu-cmpt-201/runner
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Grader
+        id: grader
+        uses: SFU-CMPT-201/graders/.github/actions/a0@main
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          GRADER_RESULTS: "${{steps.grader.outputs.result}}"
+        with:
+          runners: grader
