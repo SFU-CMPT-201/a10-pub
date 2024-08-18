@@ -11,7 +11,7 @@ on:
 jobs:
   run-autograding-tests:
     runs-on: self-hosted
-    container: ghcr.io/sfu-cmpt-201/runner
+    container: ghcr.io/sfu-cmpt-201/base
     steps:
       - name: Checkout
         uses: actions/checkout@v4
